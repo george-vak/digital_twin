@@ -1,0 +1,54 @@
+variable,description,unit,lower,upper
+CV[0],A Feed (stream 1),kscmh,,
+CV[1],D Feed (stream 2),kg/h,,
+CV[2],E Feed (stream 3),kg/h,,
+CV[3],A and C Feed (stream 4),kscmh,,
+CV[4],Recycle Flow (stream 8),kscmh,,
+CV[5],Reactor Feed Rate (stream 6),kscmh,,
+CV[6],Reactor Pressure,kPa,,2895.0
+CV[7],Reactor Level,%,50.0,100.0
+CV[8],Reactor Temperature,oC,,150.0
+CV[9],Purge Rate (stream 9),kscmh,,
+CV[10],Product Sep Temp,oC,,
+CV[11],Product Sep Level,%,30.0,100.0
+CV[12],Prod Sep Pressure,kPa,,
+CV[13],Prod Sep Underflow (stream 10),m^3/h,,
+CV[14],Stripper Level,%,,
+CV[15],Stripper Pressure,kPa,,
+CV[16],Stripper Underflow (stream 11),m^3/h,,
+CV[17],Stripper Temperature,oC,,
+CV[18],Stripper Steam Flow,kg/h,,
+CV[19],Compressor Work,kW,,
+CV[20],Reactor Cooling Water Outlet Temp,oC,,
+CV[21],Separator Cooling Water Outlet Temp,oC,,
+CV[22],Component A (stream 6),mole %,,
+CV[23],Component B (stream 6),mole %,,
+CV[24],Component C (stream 6),mole %,,
+CV[25],Component D (stream 6),mole %,,
+CV[26],Component E (stream 6),mole %,,
+CV[27],Component F (stream 6),mole %,,
+CV[28],Component A (stream 9),mole %,,
+CV[29],Component B (stream 9),mole %,,
+CV[30],Component C (stream 9),mole %,,
+CV[31],Component D (stream 9),mole %,,
+CV[32],Component E (stream 9),mole %,,
+CV[33],Component F (stream 9),mole %,,
+CV[34],Component G (stream 9),mole %,,
+CV[35],Component H (stream 9),mole %,,
+CV[36],Component D (stream 11),mole %,,
+CV[37],Component E (stream 11),mole %,,
+CV[38],Component F (stream 11),mole %,,
+CV[39],Component G (stream 11),mole %,,
+CV[40],Component H (stream 11),mole %,,
+MV[0],D Feed Flow (stream 2),%,0.0,100.0
+MV[1],E Feed Flow (stream 3),%,0.0,100.0
+MV[2],A Feed Flow (stream 1),%,0.0,100.0
+MV[3],A and C Feed Flow (stream 4),%,0.0,100.0
+MV[4],Compressor Recycle Valve,%,0.0,100.0
+MV[5],Purge Valve (stream 9),%,0.0,100.0
+MV[6],Separator Pot Liquid Flow (stream 10),%,0.0,100.0
+MV[7],Stripper Liquid Product Flow (stream 11),%,0.0,100.0
+MV[8],Stripper Steam Valve,%,0.0,100.0
+MV[9],Reactor Cooling Water Flow,%,0.0,100.0
+MV[10],Condenser Cooling Water Flow,%,0.0,100.0
+MV[11],Agitator Speed,%,0.0,100.0

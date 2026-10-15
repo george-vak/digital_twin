@@ -1,0 +1,36 @@
+{
+  "schema_version": 3,
+  "source": "temain.py / libtemain.so",
+  "scenario": "normal closed-loop operation; no external MV or DV supplied",
+  "frequency": "60s",
+  "frequency_seconds": 60,
+  "time_columns": {
+    "step": "zero-based sample number within a run",
+    "elapsed_seconds": "time since the run started"
+  },
+  "process_columns": {
+    "measurements": 41,
+    "controls": 12
+  },
+  "splits": {
+    "test": {
+      "duration": "1 days 09:20:00",
+      "seeds": [
+        9
+      ],
+      "steps_per_run": 2000,
+      "rows": 2000
+    }
+  },
+  "preprocessing": {
+    "normalization": "Per-variable standardization fitted on train only",
+    "parameters_file": "normalization.json",
+    "unscaled_columns": [
+      "run_id",
+      "step",
+      "elapsed_seconds"
+    ],
+    "windows": "Not created. Create within each run_id and split for the chosen model.",
+    "parameters_source": "/normalization.json"
+  }
+}
