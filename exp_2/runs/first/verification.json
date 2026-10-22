@@ -1,0 +1,9 @@
+{
+  "common_targets": 4939,
+  "train_pairs": 19996,
+  "stopped_epoch": 87,
+  "best_epoch": 82,
+  "mase_and_temporal_std_verified_from_saved_predictions": true,
+  "report_generation_skipped": true,
+  "model_sha256": "02256a6f500e8fdfd0f083c7ec5317b0f0d6b9cc7b63bb58b6bb5893dfe1ad37"
+}

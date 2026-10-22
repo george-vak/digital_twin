@@ -6,7 +6,7 @@ ENV PYTHONDONTWRITEBYTECODE=1
 
 WORKDIR /app
 
-COPY temain.py libtemain.so generate.py ./
+COPY temain.py libtemain.so generate.py experiment_paths.py ./
 
 RUN pip install --no-cache-dir numpy pandas
 

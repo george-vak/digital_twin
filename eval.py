@@ -2,7 +2,6 @@ import argparse
 import csv
 import hashlib
 import json
-import os
 from pathlib import Path
 
 import numpy as np
@@ -11,6 +10,7 @@ import torch
 from torch.utils.data import DataLoader
 
 from model import DEFAULT_DATA, ROOT, GRUModel, WindowDataset, load_frame
+from experiment_paths import relative_path, run_for_artifact, training_data_path
 
 
 def file_sha256(path):
@@ -29,10 +29,6 @@ def data_fingerprint(path):
             paths.append(path.parent / preprocessing["parameters_file"])
     return hashlib.sha256("\n".join(file_sha256(p) for p in paths).encode()).hexdigest()
 
-
-
-def relative_path(path):
-    return Path(os.path.relpath(Path(path).resolve(), ROOT)).as_posix()
 
 
 def report_metadata_path(path):
@@ -80,18 +76,20 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("file", nargs="?", type=Path, default=DEFAULT_DATA / "test.csv.gz")
     parser.add_argument("--model", type=Path, required=True, help="Path to the saved model checkpoint")
-    parser.add_argument("--output", type=Path, help="Override automatic CSV filename in results/")
+    parser.add_argument("--output", type=Path, help="Override CSV path in the model's run/results/")
     args = parser.parse_args()
     if args.output is None:
         file_name = args.file.name.removesuffix(".gz").removesuffix(".csv")
         dataset_name = args.file.resolve().parent.name
-        args.output = ROOT / "results" / f"{args.model.stem}_{dataset_name}_{file_name}.csv"
+        args.output = run_for_artifact(args.model) / "results" / f"{args.model.stem}_{dataset_name}_{file_name}.csv"
 
     torch.set_num_threads(4)
     data_hash = data_fingerprint(args.file)
     model_hash = file_sha256(args.model)
     checkpoint = torch.load(args.model, map_location="cpu", weights_only=True)
     config = checkpoint["config"]
+    if config.get("target_transform", "levels") != "levels":
+        parser.error("Use evaluate_mase.py to reconstruct levels from a difference model")
     normalization = checkpoint["normalization"]
     columns = normalization["columns"]
     model = GRUModel(config["input_size"], config["hidden_size"])
@@ -114,10 +112,10 @@ def main():
     })
     training = checkpoint["training"]
     details = [
-        ("Модель", str(args.model.resolve())),
+        ("Модель", relative_path(args.model.resolve())),
         ("SHA256 модели", model_hash),
         ("Архитектура", f"Один слой GRU, {config['hidden_size']} скрытых компонент; линейный выход на {len(columns)} переменных"),
-        ("Датасет обучения", training["dataset"]),
+        ("Датасет обучения", relative_path(training_data_path(training["dataset"], args.model))),
         ("Строк обучения", training["rows"]["train"]),
         ("Строк валидации", training["rows"]["validation"]),
         ("Лучшая эпоха", training["best_epoch"]),
@@ -127,7 +125,7 @@ def main():
         ("Горизонт h, шагов", config["horizon"]),
         ("Горизонт, с", config["horizon"] * config["frequency_seconds"]),
         ("Прогноз", "Одна точка t+h; каждое окно получает фактическую историю, прогнозы не подставляются в следующие окна"),
-        ("Файл оценки", str(args.file.resolve())),
+        ("Файл оценки", relative_path(args.file.resolve())),
         ("SHA256 данных", data_hash),
         ("Строк оценки", len(frame)),
         ("Прогонов", frame["run_id"].nunique()),

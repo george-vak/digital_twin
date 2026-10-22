@@ -1,0 +1,27 @@
+{
+  "experiment": "exp_1",
+  "protocol": "levels_standardization_mae",
+  "input_size": 53,
+  "output_size": 53,
+  "frequency_seconds": 60,
+  "horizons": [
+    1
+  ],
+  "training_data": "exp_1/data/base_20_5",
+  "test_files": [
+    "exp_1/data/base_20_5/test.csv.gz"
+  ],
+  "training": {
+    "window": 60,
+    "hidden_size": 64,
+    "epochs": 30,
+    "patience": 5,
+    "batch_size": 256,
+    "lr": 0.001,
+    "seed": 42
+  },
+  "preprocessing": "Per-variable (x - mean_train) / std_train; ddof=0; constant scale=1",
+  "training_loss": "MSE on standardized levels",
+  "evaluation": "Per-variable MAE in physical units",
+  "baseline": "Persistence: x_hat(t+h)=x(t)"
+}

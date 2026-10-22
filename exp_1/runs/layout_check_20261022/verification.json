@@ -1,0 +1,55 @@
+{
+  "historical_files_preserved": true,
+  "tables": [
+    {
+      "file": "results/gru_base_20_5_test.csv",
+      "max_absolute_difference": 0.0
+    },
+    {
+      "file": "results/gru_h10_base_20_5_test.csv",
+      "max_absolute_difference": 0.0
+    },
+    {
+      "file": "results/gru_h10_test_2k_seed9_test.csv",
+      "max_absolute_difference": 0.0
+    },
+    {
+      "file": "results/gru_h5_base_20_5_test.csv",
+      "max_absolute_difference": 0.0
+    },
+    {
+      "file": "results/gru_h5_test_2k_seed9_test.csv",
+      "max_absolute_difference": 0.0
+    },
+    {
+      "file": "results/gru_test_2k_seed9_test.csv",
+      "max_absolute_difference": 0.0
+    },
+    {
+      "file": "comp/comparison_gru_base_20_5_test.csv",
+      "max_absolute_difference": 0.0
+    },
+    {
+      "file": "comp/comparison_gru_h10_base_20_5_test.csv",
+      "max_absolute_difference": 0.0
+    },
+    {
+      "file": "comp/comparison_gru_h10_test_2k_seed9_test.csv",
+      "max_absolute_difference": 0.0
+    },
+    {
+      "file": "comp/comparison_gru_h5_base_20_5_test.csv",
+      "max_absolute_difference": 0.0
+    },
+    {
+      "file": "comp/comparison_gru_h5_test_2k_seed9_test.csv",
+      "max_absolute_difference": 0.0
+    },
+    {
+      "file": "comp/comparison_gru_test_2k_seed9_test.csv",
+      "max_absolute_difference": 0.0
+    }
+  ],
+  "allclose_rtol": 0.0001,
+  "allclose_atol": 1e-07
+}

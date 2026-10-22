@@ -8,26 +8,22 @@ import torch
 from torch import nn
 from torch.utils.data import DataLoader, Dataset
 
+from experiment_paths import DEFAULT_DATA, DEFAULT_RUN, ROOT, relative_path
 
-ROOT = Path(__file__).resolve().parent
-DEFAULT_DATA = ROOT / "data/base_20_5"
-DEFAULT_MODEL = ROOT / "models/gru.pt"
+
+DEFAULT_MODEL = DEFAULT_RUN / "models/gru.pt"
 WINDOW = 60  # Number of input points: t-59, ..., t. Thus L = 59.
 HORIZON = 1  # Predict t+h; 1 step = 1 minute for the current dataset.
 
 
-def default_model_path(horizon):
-    return DEFAULT_MODEL if horizon == 1 else ROOT / "models" / f"gru_h{horizon}.pt"
+def default_model_path(horizon, run_dir=DEFAULT_RUN):
+    name = "gru.pt" if horizon == 1 else f"gru_h{horizon}.pt"
+    return run_dir / "models" / name
 
 
-def load_frame(path: Path, normalization: dict, frequency_seconds: int) -> pd.DataFrame:
-    """Read generated data and put it on the model's training scale.
-
-    For normalized CSVs, metadata.json and normalization.json must accompany
-    the file. Without metadata, the CSV is treated as raw physical values.
-    """
+def load_physical_frame(path: Path, columns, frequency_seconds: int) -> pd.DataFrame:
+    """Read levels or differences, undoing the stored standardization."""
     frame = pd.read_csv(path)
-    columns = normalization["columns"]
     metadata_path = path.parent / "metadata.json"
     if metadata_path.exists():
         metadata = json.loads(metadata_path.read_text())
@@ -37,6 +33,15 @@ def load_frame(path: Path, normalization: dict, frequency_seconds: int) -> pd.Da
         if isinstance(preprocessing, dict) and "parameters_file" in preprocessing:
             source = json.loads((path.parent / preprocessing["parameters_file"]).read_text())
             frame[columns] = frame[columns] * pd.Series(source["scale"]) + pd.Series(source["mean"])
+    if not np.isfinite(frame[columns].to_numpy()).all():
+        raise ValueError("Process columns contain NaN or infinite values")
+    return frame
+
+
+def load_frame(path: Path, normalization: dict, frequency_seconds: int) -> pd.DataFrame:
+    """Put generated data on the model's training scale; sidecars are required."""
+    columns = normalization["columns"]
+    frame = load_physical_frame(path, columns, frequency_seconds)
     frame[columns] = (frame[columns] - pd.Series(normalization["mean"])) / pd.Series(normalization["scale"])
     if not np.isfinite(frame[columns].to_numpy()).all():
         raise ValueError("Process columns contain NaN or infinite values")
@@ -100,7 +105,9 @@ def validation_mse(model, loader):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--data", type=Path, default=DEFAULT_DATA)
-    parser.add_argument("--output", type=Path, help="Override models/gru.pt (h=1) or models/gru_hN.pt")
+    parser.add_argument("--run-dir", type=Path, default=DEFAULT_RUN, help="Directory exp_i/runs/<run>")
+    parser.add_argument("--output", type=Path, help="Explicit checkpoint path")
+    parser.add_argument("--overwrite", action="store_true", help="Replace existing weights with a fresh training")
     parser.add_argument("--window", type=int, default=WINDOW, help="Input points, equal to L+1")
     parser.add_argument("--horizon", type=int, default=HORIZON, help="h in t+h, in sampling steps")
     parser.add_argument("--hidden-size", type=int, default=64)
@@ -113,7 +120,9 @@ def main():
     if min(args.window, args.horizon, args.hidden_size, args.epochs, args.patience, args.batch_size) < 1 or args.lr <= 0:
         parser.error("Sizes, horizon, epochs, patience and learning rate must be positive")
     if args.output is None:
-        args.output = default_model_path(args.horizon)
+        args.output = default_model_path(args.horizon, args.run_dir)
+    if args.output.exists() and not args.overwrite:
+        parser.error(f"Model already exists: {args.output}. Choose a new --run-dir or --output")
 
     torch.manual_seed(args.seed)
     torch.set_num_threads(4)
@@ -133,7 +142,8 @@ def main():
     model = GRUModel(len(columns), args.hidden_size)
     optimizer = torch.optim.Adam(model.parameters(), lr=args.lr)
     config = dict(input_size=len(columns), hidden_size=args.hidden_size,
-                  window=args.window, horizon=args.horizon, frequency_seconds=frequency)
+                  window=args.window, horizon=args.horizon, frequency_seconds=frequency,
+                  target_transform=metadata.get("target_transform", "levels"))
     variables = pd.read_csv(args.data / "variables.csv", index_col="variable")
     args.output.parent.mkdir(parents=True, exist_ok=True)
     best_loss = float("inf")
@@ -160,7 +170,7 @@ def main():
                 "state_dict": model.state_dict(), "config": config,
                 "normalization": normalization,
                 "variables": variables[["description", "unit"]].to_dict(orient="index"),
-                "training": {"dataset": str(args.data.resolve()), "rows": rows,
+                "training": {"dataset": relative_path(args.data.resolve()), "rows": rows,
                              "windows": {s: len(loader.dataset) for s, loader in loaders.items()},
                              "splits": {s: metadata["splits"][s] for s in loaders},
                              "seed": args.seed, "lr": args.lr, "batch_size": args.batch_size,

@@ -1,0 +1,26 @@
+{
+  "experiment": "exp_2",
+  "protocol": "differences_standardization_mase",
+  "input_size": 53,
+  "output_size": 53,
+  "frequency_seconds": 60,
+  "horizons": [1],
+  "training_data": "exp_1/data/base_20_5",
+  "test_files": ["exp_1/data/base_20_5/test.csv.gz"],
+  "reference_model": "exp_1/runs/original/models/gru.pt",
+  "training": {
+    "window": 60,
+    "hidden_size": 64,
+    "epochs": 100,
+    "patience": 5,
+    "batch_size": 256,
+    "lr": 0.001,
+    "seed": 42
+  },
+  "preprocessing": "First difference within each run_id; then (delta - mean_train_delta) / std_train_delta; ddof=0",
+  "training_loss": "MSE on standardized differences",
+  "evaluation": "MASE on reconstructed levels and common target points; shared denominator from train levels",
+  "mean_std": "Per-variable mean and population std (ddof=0) of absolute scaled errors over test points",
+  "repeated_training": false,
+  "constant_series": "MASE undefined for zero train denominator; report standardized MAE separately"
+}

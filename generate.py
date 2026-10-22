@@ -10,8 +10,8 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 
-ROOT = Path(__file__).resolve().parent
-DATA_ROOT = ROOT / "data"
+from experiment_paths import DEFAULT_EXPERIMENT, ROOT
+
 DOCKER_IMAGE = "temain-simulator:local"
 SPLITS = ("train", "validation", "test")
 DEFAULT_SEEDS = {"train": (1, 2, 3, 4), "validation": (6,), "test": (7,)}
@@ -51,13 +51,15 @@ def run_in_docker(args) -> None:
         elif value is not None:
             if name == "normalization":
                 value = "/normalization.json"
+            elif name == "experiment":
+                value = Path("/app") / value.resolve().relative_to(ROOT)
             elif isinstance(value, tuple):
                 value = ",".join(map(str, value))
             command += [flag, str(value)]
     print("Generating data in Docker...", flush=True)
     result = subprocess.run(command)
     if result.returncode == 0:
-        print(f"Local dataset: {DATA_ROOT / args.dataset}", flush=True)
+        print(f"Local dataset: {args.experiment / 'data' / args.dataset}", flush=True)
     raise SystemExit(result.returncode)
 
 
@@ -141,7 +143,8 @@ def generate_run(seed: int, steps: int, frequency: str, frequency_seconds: int,
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__, add_help=False)
     parser.add_argument("--h", "-h", "--help", action="help", help="Show help and exit")
-    parser.add_argument("--dataset", default="base_20_5", help="Name of a new directory inside data/")
+    parser.add_argument("--experiment", type=Path, default=DEFAULT_EXPERIMENT, help="Experiment directory inside the repository")
+    parser.add_argument("--dataset", default="base_20_5", help="Name of a new directory inside exp_i/data/")
     parser.add_argument("--freq", "--frequency", dest="frequency", default="60s", help="Sampling interval with units, e.g. 10s, 60s, 5min")
     parser.add_argument("--tr-dur", "--train-duration", dest="train_duration", type=parse_duration, default=parse_duration("20000min"))
     parser.add_argument("--val-dur", "--validation-duration", dest="validation_duration", type=parse_duration, default=parse_duration("5000min"))
@@ -155,6 +158,10 @@ def main() -> None:
     parser.add_argument("--chunk", "--chunk-steps", dest="chunk_steps", type=int, default=1000,
                         help="Samples per simulator call; controls peak memory")
     args = parser.parse_args()
+    args.experiment = args.experiment.resolve()
+    if not args.experiment.is_relative_to(ROOT):
+        parser.error("--experiment must be inside the repository (also mounted in Docker)")
+    data_root = args.experiment / "data"
 
     if args.test_only and args.normalization is None:
         parser.error("--tonly requires --nrm from the training dataset")
@@ -190,7 +197,7 @@ def main() -> None:
                            "steps_per_run": int(steps_per_run),
                            "rows": int(steps_per_run * len(seeds[split]))}
 
-    output = DATA_ROOT / args.dataset
+    output = data_root / args.dataset
     if output.exists():
         parser.error(f"Dataset already exists: {output}. Choose another --dataset name")
 
@@ -199,8 +206,8 @@ def main() -> None:
 
     from temain import NCV, NMV, TemainProcess
 
-    DATA_ROOT.mkdir(parents=True, exist_ok=True)
-    staging = Path(tempfile.mkdtemp(prefix=f".{args.dataset}-", dir=DATA_ROOT))
+    data_root.mkdir(parents=True, exist_ok=True)
+    staging = Path(tempfile.mkdtemp(prefix=f".{args.dataset}-", dir=data_root))
     try:
         normalization = json.loads(args.normalization.read_text()) if args.normalization else None
         columns = TemainProcess.info().index.tolist()

@@ -1,0 +1,32 @@
+$ /Users/georgiyvakulenko/Desktop/digital_twin/.venv/bin/python /Users/georgiyvakulenko/Desktop/digital_twin/eval.py /Users/georgiyvakulenko/Desktop/digital_twin/exp_1/data/base_20_5/test.csv.gz --model /Users/georgiyvakulenko/Desktop/digital_twin/exp_1/runs/layout_check_20261022/models/gru.pt
+Report: /Users/georgiyvakulenko/Desktop/digital_twin/exp_1/runs/layout_check_20261022/results/gru_base_20_5_test.csv; 4940 forecasts, h=1
+$ /Users/georgiyvakulenko/Desktop/digital_twin/.venv/bin/python /Users/georgiyvakulenko/Desktop/digital_twin/compare.py /Users/georgiyvakulenko/Desktop/digital_twin/exp_1/runs/layout_check_20261022/results/gru_base_20_5_test.csv
+Comparison: /Users/georgiyvakulenko/Desktop/digital_twin/exp_1/runs/layout_check_20261022/comp/comparison_gru_base_20_5_test.csv; GRU better: 21, worse: 32, equal: 0
+$ /Users/georgiyvakulenko/Desktop/digital_twin/.venv/bin/python /Users/georgiyvakulenko/Desktop/digital_twin/eval.py /Users/georgiyvakulenko/Desktop/digital_twin/exp_1/data/test_2k_seed9/test.csv.gz --model /Users/georgiyvakulenko/Desktop/digital_twin/exp_1/runs/layout_check_20261022/models/gru.pt
+Report: /Users/georgiyvakulenko/Desktop/digital_twin/exp_1/runs/layout_check_20261022/results/gru_test_2k_seed9_test.csv; 1940 forecasts, h=1
+$ /Users/georgiyvakulenko/Desktop/digital_twin/.venv/bin/python /Users/georgiyvakulenko/Desktop/digital_twin/compare.py /Users/georgiyvakulenko/Desktop/digital_twin/exp_1/runs/layout_check_20261022/results/gru_test_2k_seed9_test.csv
+Comparison: /Users/georgiyvakulenko/Desktop/digital_twin/exp_1/runs/layout_check_20261022/comp/comparison_gru_test_2k_seed9_test.csv; GRU better: 21, worse: 32, equal: 0
+$ /Users/georgiyvakulenko/Desktop/digital_twin/.venv/bin/python /Users/georgiyvakulenko/Desktop/digital_twin/eval.py /Users/georgiyvakulenko/Desktop/digital_twin/exp_1/data/base_20_5/test.csv.gz --model /Users/georgiyvakulenko/Desktop/digital_twin/exp_1/runs/layout_check_20261022/models/gru_h5.pt
+Report: /Users/georgiyvakulenko/Desktop/digital_twin/exp_1/runs/layout_check_20261022/results/gru_h5_base_20_5_test.csv; 4936 forecasts, h=5
+$ /Users/georgiyvakulenko/Desktop/digital_twin/.venv/bin/python /Users/georgiyvakulenko/Desktop/digital_twin/compare.py /Users/georgiyvakulenko/Desktop/digital_twin/exp_1/runs/layout_check_20261022/results/gru_h5_base_20_5_test.csv
+Comparison: /Users/georgiyvakulenko/Desktop/digital_twin/exp_1/runs/layout_check_20261022/comp/comparison_gru_h5_base_20_5_test.csv; GRU better: 45, worse: 8, equal: 0
+$ /Users/georgiyvakulenko/Desktop/digital_twin/.venv/bin/python /Users/georgiyvakulenko/Desktop/digital_twin/eval.py /Users/georgiyvakulenko/Desktop/digital_twin/exp_1/data/test_2k_seed9/test.csv.gz --model /Users/georgiyvakulenko/Desktop/digital_twin/exp_1/runs/layout_check_20261022/models/gru_h5.pt
+Report: /Users/georgiyvakulenko/Desktop/digital_twin/exp_1/runs/layout_check_20261022/results/gru_h5_test_2k_seed9_test.csv; 1936 forecasts, h=5
+$ /Users/georgiyvakulenko/Desktop/digital_twin/.venv/bin/python /Users/georgiyvakulenko/Desktop/digital_twin/compare.py /Users/georgiyvakulenko/Desktop/digital_twin/exp_1/runs/layout_check_20261022/results/gru_h5_test_2k_seed9_test.csv
+Comparison: /Users/georgiyvakulenko/Desktop/digital_twin/exp_1/runs/layout_check_20261022/comp/comparison_gru_h5_test_2k_seed9_test.csv; GRU better: 45, worse: 8, equal: 0
+$ /Users/georgiyvakulenko/Desktop/digital_twin/.venv/bin/python /Users/georgiyvakulenko/Desktop/digital_twin/eval.py /Users/georgiyvakulenko/Desktop/digital_twin/exp_1/data/base_20_5/test.csv.gz --model /Users/georgiyvakulenko/Desktop/digital_twin/exp_1/runs/layout_check_20261022/models/gru_h10.pt
+Report: /Users/georgiyvakulenko/Desktop/digital_twin/exp_1/runs/layout_check_20261022/results/gru_h10_base_20_5_test.csv; 4931 forecasts, h=10
+$ /Users/georgiyvakulenko/Desktop/digital_twin/.venv/bin/python /Users/georgiyvakulenko/Desktop/digital_twin/compare.py /Users/georgiyvakulenko/Desktop/digital_twin/exp_1/runs/layout_check_20261022/results/gru_h10_base_20_5_test.csv
+Comparison: /Users/georgiyvakulenko/Desktop/digital_twin/exp_1/runs/layout_check_20261022/comp/comparison_gru_h10_base_20_5_test.csv; GRU better: 48, worse: 5, equal: 0
+$ /Users/georgiyvakulenko/Desktop/digital_twin/.venv/bin/python /Users/georgiyvakulenko/Desktop/digital_twin/eval.py /Users/georgiyvakulenko/Desktop/digital_twin/exp_1/data/test_2k_seed9/test.csv.gz --model /Users/georgiyvakulenko/Desktop/digital_twin/exp_1/runs/layout_check_20261022/models/gru_h10.pt
+Report: /Users/georgiyvakulenko/Desktop/digital_twin/exp_1/runs/layout_check_20261022/results/gru_h10_test_2k_seed9_test.csv; 1931 forecasts, h=10
+$ /Users/georgiyvakulenko/Desktop/digital_twin/.venv/bin/python /Users/georgiyvakulenko/Desktop/digital_twin/compare.py /Users/georgiyvakulenko/Desktop/digital_twin/exp_1/runs/layout_check_20261022/results/gru_h10_test_2k_seed9_test.csv
+Comparison: /Users/georgiyvakulenko/Desktop/digital_twin/exp_1/runs/layout_check_20261022/comp/comparison_gru_h10_test_2k_seed9_test.csv; GRU better: 49, worse: 4, equal: 0
+$ /Users/georgiyvakulenko/Desktop/digital_twin/.venv/bin/python /Users/georgiyvakulenko/Desktop/digital_twin/grf.py --run-dir /Users/georgiyvakulenko/Desktop/digital_twin/exp_1/runs/layout_check_20261022 --no-show
+Matplotlib is building the font cache; this may take a moment.
+Остатки base_20_5/test.csv.gz: 4940 прогнозов; MAE совпадает с отчётом.
+Остатки test_2k_seed9/test.csv.gz: 1940 прогнозов; MAE совпадает с отчётом.
+/Users/georgiyvakulenko/Desktop/digital_twin/exp_1/runs/layout_check_20261022/plots/01_comparison_counts.png
+/Users/georgiyvakulenko/Desktop/digital_twin/exp_1/runs/layout_check_20261022/plots/02_improvement_heatmap.png
+/Users/georgiyvakulenko/Desktop/digital_twin/exp_1/runs/layout_check_20261022/plots/03_residuals_h1_base_20_5_test.png
+/Users/georgiyvakulenko/Desktop/digital_twin/exp_1/runs/layout_check_20261022/plots/03_residuals_h1_test_2k_seed9_test.png

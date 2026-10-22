@@ -1,0 +1,115 @@
+{
+  "status": "complete",
+  "started_at_utc": "2026-10-22T10:27:33.065997+00:00",
+  "experiment": "exp_2",
+  "run": "first",
+  "trained": true,
+  "source_run": null,
+  "config": {
+    "experiment": "exp_2",
+    "protocol": "differences_standardization_mase",
+    "input_size": 53,
+    "output_size": 53,
+    "frequency_seconds": 60,
+    "horizons": [
+      1
+    ],
+    "training_data": "exp_1/data/base_20_5",
+    "test_files": [
+      "exp_1/data/base_20_5/test.csv.gz"
+    ],
+    "reference_model": "exp_1/runs/original/models/gru.pt",
+    "training": {
+      "window": 60,
+      "hidden_size": 64,
+      "epochs": 100,
+      "patience": 5,
+      "batch_size": 256,
+      "lr": 0.001,
+      "seed": 42
+    },
+    "preprocessing": "First difference within each run_id; then (delta - mean_train_delta) / std_train_delta; ddof=0",
+    "training_loss": "MSE on standardized differences",
+    "evaluation": "MASE on reconstructed levels and common target points; shared denominator from train levels",
+    "mean_std": "Per-variable mean and population std (ddof=0) of absolute scaled errors over test points",
+    "repeated_training": false,
+    "constant_series": "MASE undefined for zero train denominator; report standardized MAE separately"
+  },
+  "python": "3.12.3 (v3.12.3:f6650f9ad7, Apr  9 2024, 08:18:47) [Clang 13.0.0 (clang-1300.0.29.30)]",
+  "packages": {
+    "numpy": "2.5.4",
+    "pandas": "3.0.6",
+    "torch": "2.14.1",
+    "matplotlib": "3.11.2"
+  },
+  "code_sha256": {
+    "baseline.py": "1afea5dfbf8494139da4a60920666836b5f46c2ebfe953a1f60edf3a692a5d3c",
+    "compare.py": "0cf95bcbe2a44ea7cc71106492d3ffe2bd63f50512b4e26d32cd4d6fbb026de0",
+    "eval.py": "3980e4fd0bc7978707496a2e31aeaefed95fb8dbd88bf0b7c32948be6bfda97a",
+    "evaluate_mase.py": "3115a5f4ac54083c655386eaa416c6a85808918b8685ac7ad032d0ba556a3e34",
+    "experiment_paths.py": "df5d17b91561eee21a56635af08809831d3d635441a3d6f9a3853d83ed0c65c1",
+    "experiment_runner.py": "58dcaaac24f0641b512f784bb5384c34bb277b0f1508b28917d3efe93f75a18a",
+    "generate.py": "7b6e2afce3e4638cb6dbe4f58f36c333c36a88e784c1aafa49d8455828792368",
+    "grf.py": "5b2a5102257d6c67c566879fea9773896becdeb0f3e12ce27d68b1cce2e252c8",
+    "model.py": "a4b07be1af681f456bd685770f9ac961353ca74dc35cca69e13a88b49f1669b3",
+    "preprocess.py": "e958c7a4ccc647783c8f6b6a32cc3e891c0a2585be91c0c513b680f375a4c715",
+    "temain.py": "0f2892c376ee83729b1dee3d20b40cefb9b8238a4596d2e6a830bcd09f7df4ee",
+    "exp_2/run.py": "c731f4ab540a78e23608393d11d132357ad3fc891d4524bf34ac8e2d73145c84",
+    "requirements.txt": "d44f56a12a3e848e6a93c4b30b073950592199baccbc1d136772b89dd645ab75",
+    "Dockerfile": "d529daa665857a93793ce5430938cc4c653d87800c5fc462b06fa83a1175316f"
+  },
+  "input_sha256": {
+    "exp_1/data/base_20_5/metadata.json": "7678b56e61717f8c770488e33667f762250b0cb56921c7168cfa07045970278a",
+    "exp_1/data/base_20_5/normalization.json": "504dd3abcf3869dd2fba2eb10972873b6a44bf58fce3c7a0faf287ce013edecf",
+    "exp_1/data/base_20_5/test.csv.gz": "200d9efc525676e52e005016541f17ee69796ef800e5cc00dcc106c07e077b62",
+    "exp_1/data/base_20_5/train.csv.gz": "bdbd388679fbc94cbb15d074d0e6d369819f701913ae465982cba698f98c54a9",
+    "exp_1/data/base_20_5/validation.csv.gz": "e58f452bc96ae6431df8d13f94818f4c092fe9e9cfded97d08f27b0b1d79de1a",
+    "exp_1/data/base_20_5/variables.csv": "474ce8843d59501e0db6ba02d9712889552a0d7977d83f18867d62877885b67c",
+    "exp_1/runs/original/models/gru.pt": "6ee78f6aa8e91bb6624b829064e530ac1612b3ac26c4974319890a8d4fb6e073"
+  },
+  "copied_sha256": {},
+  "commands": [
+    [
+      "/Users/georgiyvakulenko/Desktop/digital_twin/.venv/bin/python",
+      "/Users/georgiyvakulenko/Desktop/digital_twin/model.py",
+      "--data",
+      "/Users/georgiyvakulenko/Desktop/digital_twin/exp_2/runs/first/data/differenced",
+      "--run-dir",
+      "/Users/georgiyvakulenko/Desktop/digital_twin/exp_2/runs/first",
+      "--horizon",
+      "1",
+      "--window",
+      "60",
+      "--hidden-size",
+      "64",
+      "--epochs",
+      "100",
+      "--patience",
+      "5",
+      "--batch-size",
+      "256",
+      "--lr",
+      "0.001",
+      "--seed",
+      "42",
+      "--overwrite"
+    ],
+    [
+      "/Users/georgiyvakulenko/Desktop/digital_twin/.venv/bin/python",
+      "/Users/georgiyvakulenko/Desktop/digital_twin/evaluate_mase.py",
+      "--data",
+      "/Users/georgiyvakulenko/Desktop/digital_twin/exp_1/data/base_20_5",
+      "--reference-model",
+      "/Users/georgiyvakulenko/Desktop/digital_twin/exp_1/runs/original/models/gru.pt",
+      "--model",
+      "/Users/georgiyvakulenko/Desktop/digital_twin/exp_2/runs/first/models/gru.pt",
+      "--output-dir",
+      "/Users/georgiyvakulenko/Desktop/digital_twin/exp_2/runs/first",
+      "--skip-report"
+    ]
+  ],
+  "completed_commands": 2,
+  "overwrite": true,
+  "report_preserved": true,
+  "finished_at_utc": "2026-10-22T10:31:52.168207+00:00"
+}

@@ -13,6 +13,7 @@ from torch.utils.data import DataLoader
 from baseline import PersistenceModel
 from eval import data_fingerprint, display_details, file_sha256, relative_path, report_metadata_path
 from model import ROOT, WindowDataset, load_frame
+from experiment_paths import resolve_path, run_for_artifact
 
 
 def read_report(path):
@@ -72,7 +73,7 @@ def main():
     parser.add_argument("--output", type=Path, help="Override comp/comparison_<report>.csv")
     args = parser.parse_args()
     if args.output is None:
-        args.output = ROOT / "comp" / f"comparison_{args.report.stem}.csv"
+        args.output = run_for_artifact(args.report) / "comp" / f"comparison_{args.report.stem}.csv"
     if args.output.resolve() == args.report.resolve():
         parser.error("Comparison output must differ from the GRU report")
 
@@ -82,8 +83,8 @@ def main():
         parser.error(str(error))
     if not {"SHA256 данных", "SHA256 модели", "Размер окна, точек"} <= details.keys():
         parser.error("Missing verification metadata. Restore the matching .metadata file or run eval.py again.")
-    data_path = Path(details["Файл оценки"])
-    model_path = Path(details["Модель"])
+    data_path = resolve_path(details["Файл оценки"])
+    model_path = resolve_path(details["Модель"])
     if data_fingerprint(data_path) != details["SHA256 данных"]:
         parser.error("Data or its metadata/normalization changed. Run eval.py again.")
     if file_sha256(model_path) != details["SHA256 модели"]:

@@ -1,0 +1,8 @@
+.git
+.venv
+venv
+__pycache__
+**/__pycache__
+exp_*
+tests
+.DS_Store

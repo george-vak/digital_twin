@@ -70,6 +70,8 @@ class ComparisonTests(unittest.TestCase):
     def test_cli_report_and_changed_input(self):
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)
+            run = root / "exp_test/runs/check"
+            (run / "models").mkdir(parents=True)
             frame = pd.DataFrame({
                 "run_id": ["a"] * 8 + ["b"] * 8,
                 "step": list(range(8)) * 2,
@@ -82,7 +84,7 @@ class ComparisonTests(unittest.TestCase):
             model = GRUModel(2, 2)
             for parameter in model.parameters():
                 parameter.data.zero_()
-            checkpoint = root / "toy.pt"
+            checkpoint = run / "models/toy.pt"
             torch.save({
                 "state_dict": model.state_dict(),
                 "config": {"input_size": 2, "hidden_size": 2, "window": 3, "horizon": 3, "frequency_seconds": 60},
@@ -90,9 +92,9 @@ class ComparisonTests(unittest.TestCase):
                 "variables": {c: {"description": c, "unit": "unit"} for c in ("CV[0]", "MV[0]")},
                 "training": {"rows": {"train": 16, "validation": 8}, "dataset": "synthetic", "best_epoch": 1},
             }, checkpoint)
-            report = root / "gru.csv"
-            output = root / "comp/comparison.csv"
-            subprocess.run([sys.executable, str(ROOT / "eval.py"), str(data), "--model", str(checkpoint), "--output", str(report)], check=True, capture_output=True)
+            report = run / "results" / f"toy_{root.name}_test.csv"
+            output = run / "comp" / f"comparison_{report.name}"
+            subprocess.run([sys.executable, str(ROOT / "eval.py"), str(data), "--model", str(checkpoint)], cwd=root, check=True, capture_output=True)
             self.assertTrue(report_metadata_path(report).is_file())
             with report.open(encoding="utf-8-sig", newline="") as file:
                 report_rows = list(csv.reader(file))
@@ -102,8 +104,8 @@ class ComparisonTests(unittest.TestCase):
             self.assertTrue(all("SHA256" not in row[0] for row in report_preamble))
             self.assertIn([f"Модель: {relative_path(checkpoint)}"], report_preamble)
             self.assertTrue(all(len(row) == 4 for row in report_rows[report_header:]))
-            command = [sys.executable, str(ROOT / "compare.py"), str(report), "--output", str(output)]
-            subprocess.run(command, check=True, capture_output=True)
+            command = [sys.executable, str(ROOT / "compare.py"), str(report)]
+            subprocess.run(command, cwd=root, check=True, capture_output=True)
             with output.open(encoding="utf-8-sig", newline="") as file:
                 rows = list(csv.reader(file))
             header = next(i for i, row in enumerate(rows) if row and row[0] == "Параметр")

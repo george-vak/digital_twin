@@ -1,0 +1,162 @@
+{
+  "status": "complete",
+  "started_at_utc": "2026-10-22T07:56:33.420845+00:00",
+  "experiment": "exp_1",
+  "run": "layout_check_20261022",
+  "trained": false,
+  "source_run": "original",
+  "config": {
+    "experiment": "exp_1",
+    "protocol": "levels_standardization_mae",
+    "input_size": 53,
+    "output_size": 53,
+    "frequency_seconds": 60,
+    "horizons": [
+      1,
+      5,
+      10
+    ],
+    "training_data": "exp_1/data/base_20_5",
+    "test_files": [
+      "exp_1/data/base_20_5/test.csv.gz",
+      "exp_1/data/test_2k_seed9/test.csv.gz"
+    ],
+    "training": {
+      "window": 60,
+      "hidden_size": 64,
+      "epochs": 30,
+      "patience": 5,
+      "batch_size": 256,
+      "lr": 0.001,
+      "seed": 42
+    },
+    "preprocessing": "Per-variable (x - mean_train) / std_train; ddof=0; constant scale=1",
+    "training_loss": "MSE on standardized levels",
+    "evaluation": "Per-variable MAE in physical units",
+    "baseline": "Persistence: x_hat(t+h)=x(t)"
+  },
+  "python": "3.12.3 (v3.12.3:f6650f9ad7, Apr  9 2024, 08:18:47) [Clang 13.0.0 (clang-1300.0.29.30)]",
+  "packages": {
+    "numpy": "2.5.4",
+    "pandas": "3.0.6",
+    "torch": "2.14.1",
+    "matplotlib": "3.11.2"
+  },
+  "code_sha256": {
+    "baseline.py": "1afea5dfbf8494139da4a60920666836b5f46c2ebfe953a1f60edf3a692a5d3c",
+    "compare.py": "0cf95bcbe2a44ea7cc71106492d3ffe2bd63f50512b4e26d32cd4d6fbb026de0",
+    "eval.py": "c1f6b106318525c7678c1bae37bcc2f3b9f9489a27a26ee72fc232cfde2acb8b",
+    "experiment_paths.py": "be4aa3a0e7a5a1ab5c8266eaeb3fa8582df3a3609b74e08e4a8c8eeac9a22876",
+    "experiment_runner.py": "0e97212913346530922d4cfd34e266dd5ebfa03dc24c624b5dfd0e7f9a710ca2",
+    "generate.py": "7b6e2afce3e4638cb6dbe4f58f36c333c36a88e784c1aafa49d8455828792368",
+    "grf.py": "a0320cb27efbf7c92b71c7bac39b02d6b8d41561dae36af4c8388b500a852e4a",
+    "model.py": "fdee20c71c6ee0326409bfc27bed835a81281e471c249c090f0808d4f01ee0a9",
+    "temain.py": "0f2892c376ee83729b1dee3d20b40cefb9b8238a4596d2e6a830bcd09f7df4ee",
+    "exp_1/run.py": "2890da70c820032cc30d5fe438aba2d23df3fce28571e9e5cb0646e449b362da",
+    "requirements.txt": "533f3c78884ad1dcd5c91a73d8bdb2ebdbd3cb0f941a815c0737d54511d95171",
+    "Dockerfile": "d529daa665857a93793ce5430938cc4c653d87800c5fc462b06fa83a1175316f"
+  },
+  "input_sha256": {
+    "exp_1/data/base_20_5/metadata.json": "7678b56e61717f8c770488e33667f762250b0cb56921c7168cfa07045970278a",
+    "exp_1/data/base_20_5/normalization.json": "504dd3abcf3869dd2fba2eb10972873b6a44bf58fce3c7a0faf287ce013edecf",
+    "exp_1/data/base_20_5/test.csv.gz": "200d9efc525676e52e005016541f17ee69796ef800e5cc00dcc106c07e077b62",
+    "exp_1/data/base_20_5/train.csv.gz": "bdbd388679fbc94cbb15d074d0e6d369819f701913ae465982cba698f98c54a9",
+    "exp_1/data/base_20_5/validation.csv.gz": "e58f452bc96ae6431df8d13f94818f4c092fe9e9cfded97d08f27b0b1d79de1a",
+    "exp_1/data/base_20_5/variables.csv": "474ce8843d59501e0db6ba02d9712889552a0d7977d83f18867d62877885b67c",
+    "exp_1/data/test_2k_seed9/metadata.json": "44df4f9186f308cb026ef6d5e4b4f251bf06e0c1949a22a6325341b8581b22e5",
+    "exp_1/data/test_2k_seed9/normalization.json": "504dd3abcf3869dd2fba2eb10972873b6a44bf58fce3c7a0faf287ce013edecf",
+    "exp_1/data/test_2k_seed9/test.csv.gz": "30b7b910470c4abd74b58808213298a06cd7c43e648dd41115ad6559c95c1c26",
+    "exp_1/data/test_2k_seed9/variables.csv": "474ce8843d59501e0db6ba02d9712889552a0d7977d83f18867d62877885b67c"
+  },
+  "copied_sha256": {
+    "exp_1/runs/layout_check_20261022/models/gru.pt": "6ee78f6aa8e91bb6624b829064e530ac1612b3ac26c4974319890a8d4fb6e073",
+    "exp_1/runs/layout_check_20261022/models/gru.history.csv": "2243079dd591262be812e6d202ed4fea1557c6cf256a155325a30f37b821ec80",
+    "exp_1/runs/layout_check_20261022/models/gru_h5.pt": "c733f2e6f96551e70276da0960faa8100d3f1900f8cd8924797ec2ba156fc56f",
+    "exp_1/runs/layout_check_20261022/models/gru_h5.history.csv": "ee92fb840dfd9fcc92e2f16d7f90337c75d9cf6b0591144e684e5dfb849837b6",
+    "exp_1/runs/layout_check_20261022/models/gru_h10.pt": "15e57ec036f28ca003b721341e708b1dfe0767b8f85d82d4063d4340f53782f9",
+    "exp_1/runs/layout_check_20261022/models/gru_h10.history.csv": "33a9ae126a8f637379950abb0c0ce32a005bde1d2a0daa4c6d532f9c3d12d1d4"
+  },
+  "commands": [
+    [
+      "/Users/georgiyvakulenko/Desktop/digital_twin/.venv/bin/python",
+      "/Users/georgiyvakulenko/Desktop/digital_twin/eval.py",
+      "/Users/georgiyvakulenko/Desktop/digital_twin/exp_1/data/base_20_5/test.csv.gz",
+      "--model",
+      "/Users/georgiyvakulenko/Desktop/digital_twin/exp_1/runs/layout_check_20261022/models/gru.pt"
+    ],
+    [
+      "/Users/georgiyvakulenko/Desktop/digital_twin/.venv/bin/python",
+      "/Users/georgiyvakulenko/Desktop/digital_twin/compare.py",
+      "/Users/georgiyvakulenko/Desktop/digital_twin/exp_1/runs/layout_check_20261022/results/gru_base_20_5_test.csv"
+    ],
+    [
+      "/Users/georgiyvakulenko/Desktop/digital_twin/.venv/bin/python",
+      "/Users/georgiyvakulenko/Desktop/digital_twin/eval.py",
+      "/Users/georgiyvakulenko/Desktop/digital_twin/exp_1/data/test_2k_seed9/test.csv.gz",
+      "--model",
+      "/Users/georgiyvakulenko/Desktop/digital_twin/exp_1/runs/layout_check_20261022/models/gru.pt"
+    ],
+    [
+      "/Users/georgiyvakulenko/Desktop/digital_twin/.venv/bin/python",
+      "/Users/georgiyvakulenko/Desktop/digital_twin/compare.py",
+      "/Users/georgiyvakulenko/Desktop/digital_twin/exp_1/runs/layout_check_20261022/results/gru_test_2k_seed9_test.csv"
+    ],
+    [
+      "/Users/georgiyvakulenko/Desktop/digital_twin/.venv/bin/python",
+      "/Users/georgiyvakulenko/Desktop/digital_twin/eval.py",
+      "/Users/georgiyvakulenko/Desktop/digital_twin/exp_1/data/base_20_5/test.csv.gz",
+      "--model",
+      "/Users/georgiyvakulenko/Desktop/digital_twin/exp_1/runs/layout_check_20261022/models/gru_h5.pt"
+    ],
+    [
+      "/Users/georgiyvakulenko/Desktop/digital_twin/.venv/bin/python",
+      "/Users/georgiyvakulenko/Desktop/digital_twin/compare.py",
+      "/Users/georgiyvakulenko/Desktop/digital_twin/exp_1/runs/layout_check_20261022/results/gru_h5_base_20_5_test.csv"
+    ],
+    [
+      "/Users/georgiyvakulenko/Desktop/digital_twin/.venv/bin/python",
+      "/Users/georgiyvakulenko/Desktop/digital_twin/eval.py",
+      "/Users/georgiyvakulenko/Desktop/digital_twin/exp_1/data/test_2k_seed9/test.csv.gz",
+      "--model",
+      "/Users/georgiyvakulenko/Desktop/digital_twin/exp_1/runs/layout_check_20261022/models/gru_h5.pt"
+    ],
+    [
+      "/Users/georgiyvakulenko/Desktop/digital_twin/.venv/bin/python",
+      "/Users/georgiyvakulenko/Desktop/digital_twin/compare.py",
+      "/Users/georgiyvakulenko/Desktop/digital_twin/exp_1/runs/layout_check_20261022/results/gru_h5_test_2k_seed9_test.csv"
+    ],
+    [
+      "/Users/georgiyvakulenko/Desktop/digital_twin/.venv/bin/python",
+      "/Users/georgiyvakulenko/Desktop/digital_twin/eval.py",
+      "/Users/georgiyvakulenko/Desktop/digital_twin/exp_1/data/base_20_5/test.csv.gz",
+      "--model",
+      "/Users/georgiyvakulenko/Desktop/digital_twin/exp_1/runs/layout_check_20261022/models/gru_h10.pt"
+    ],
+    [
+      "/Users/georgiyvakulenko/Desktop/digital_twin/.venv/bin/python",
+      "/Users/georgiyvakulenko/Desktop/digital_twin/compare.py",
+      "/Users/georgiyvakulenko/Desktop/digital_twin/exp_1/runs/layout_check_20261022/results/gru_h10_base_20_5_test.csv"
+    ],
+    [
+      "/Users/georgiyvakulenko/Desktop/digital_twin/.venv/bin/python",
+      "/Users/georgiyvakulenko/Desktop/digital_twin/eval.py",
+      "/Users/georgiyvakulenko/Desktop/digital_twin/exp_1/data/test_2k_seed9/test.csv.gz",
+      "--model",
+      "/Users/georgiyvakulenko/Desktop/digital_twin/exp_1/runs/layout_check_20261022/models/gru_h10.pt"
+    ],
+    [
+      "/Users/georgiyvakulenko/Desktop/digital_twin/.venv/bin/python",
+      "/Users/georgiyvakulenko/Desktop/digital_twin/compare.py",
+      "/Users/georgiyvakulenko/Desktop/digital_twin/exp_1/runs/layout_check_20261022/results/gru_h10_test_2k_seed9_test.csv"
+    ],
+    [
+      "/Users/georgiyvakulenko/Desktop/digital_twin/.venv/bin/python",
+      "/Users/georgiyvakulenko/Desktop/digital_twin/grf.py",
+      "--run-dir",
+      "/Users/georgiyvakulenko/Desktop/digital_twin/exp_1/runs/layout_check_20261022",
+      "--no-show"
+    ]
+  ],
+  "completed_commands": 13,
+  "finished_at_utc": "2026-10-22T07:57:16.440398+00:00"
+}
