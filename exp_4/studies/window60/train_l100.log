@@ -1,0 +1,11 @@
+{"mode": "train", "seed": 100, "steps": 48, "terminated": true, "mean_cost": 165.0765300665128, "std_cost": 14.228730897092536, "total_cost": 7923.673443192613}
+{"mode": "train", "seed": 101, "steps": 54, "terminated": true, "mean_cost": 161.33559085186874, "std_cost": 14.46346566361939, "total_cost": 8712.121906000912}
+{"mode": "train", "seed": 102, "steps": 61, "terminated": true, "mean_cost": 164.94697864377935, "std_cost": 12.879722050164746, "total_cost": 10061.76569727054}
+{"mode": "train", "seed": 103, "steps": 62, "terminated": true, "mean_cost": 169.05476476889683, "std_cost": 12.273655911281155, "total_cost": 10481.395415671603}
+{"mode": "train", "seed": 104, "steps": 31, "terminated": true, "mean_cost": 150.41157065432398, "std_cost": 14.756391130818566, "total_cost": 4662.758690284043}
+{"mode": "train", "seed": 105, "steps": 60, "terminated": true, "mean_cost": 166.03101265909837, "std_cost": 12.897792476530842, "total_cost": 9961.860759545902}
+{"mode": "train", "seed": 106, "steps": 48, "terminated": true, "mean_cost": 162.92104609302592, "std_cost": 21.906077792737157, "total_cost": 7820.210212465245}
+{"mode": "train", "seed": 107, "steps": 43, "terminated": true, "mean_cost": 155.37479043254632, "std_cost": 24.304284816145355, "total_cost": 6681.115988599492}
+{"mode": "train", "seed": 108, "steps": 30, "terminated": true, "mean_cost": 142.59217348857973, "std_cost": 25.834285082138912, "total_cost": 4277.765204657392}
+{"mode": "train", "seed": 109, "steps": 30, "terminated": true, "mean_cost": 134.82248331964053, "std_cost": 28.710094063487798, "total_cost": 4044.674499589216}
+Saved: /Users/georgiyvakulenko/Desktop/digital_twin/exp_4/runs/tuning_w60_l100

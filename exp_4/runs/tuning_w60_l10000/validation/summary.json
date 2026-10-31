@@ -1,0 +1,62 @@
+{
+  "episodes": [
+    {
+      "mode": "validation",
+      "seed": 200,
+      "steps": 138,
+      "terminated": true,
+      "mean_cost": 173.15490897985435,
+      "std_cost": 22.26500032532611,
+      "total_cost": 23895.3774392199,
+      "mv_window_rmse": 3.6757514161621887,
+      "mv_step_rmse": 0.38296921521912686
+    },
+    {
+      "mode": "validation",
+      "seed": 201,
+      "steps": 73,
+      "terminated": true,
+      "mean_cost": 170.6818418877149,
+      "std_cost": 5.83346935338973,
+      "total_cost": 12459.774457803189,
+      "mv_window_rmse": 1.7405230365357616,
+      "mv_step_rmse": 0.3731952375089802
+    },
+    {
+      "mode": "validation",
+      "seed": 202,
+      "steps": 74,
+      "terminated": true,
+      "mean_cost": 165.44879424924133,
+      "std_cost": 4.661324840604107,
+      "total_cost": 12243.210774443858,
+      "mv_window_rmse": 1.9261645382963153,
+      "mv_step_rmse": 0.38485384468227274
+    },
+    {
+      "mode": "validation",
+      "seed": 203,
+      "steps": 73,
+      "terminated": true,
+      "mean_cost": 201.02344247959968,
+      "std_cost": 40.62309396462009,
+      "total_cost": 14674.711301010777,
+      "mv_window_rmse": 4.068099724276771,
+      "mv_step_rmse": 0.5491967623766146
+    },
+    {
+      "mode": "validation",
+      "seed": 204,
+      "steps": 162,
+      "terminated": true,
+      "mean_cost": 187.31952363050908,
+      "std_cost": 54.79112507675274,
+      "total_cost": 30345.762828142473,
+      "mv_window_rmse": 5.033199961596039,
+      "mv_step_rmse": 0.4670785699610352
+    }
+  ],
+  "mean_steps": 104.0,
+  "completed": 0,
+  "mean_cost": 179.52570224538385
+}

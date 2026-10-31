@@ -1,0 +1,44 @@
+{
+  "weights": [
+    0,
+    1,
+    100,
+    10000,
+    1000000
+  ],
+  "window": 60,
+  "training_seeds": [
+    100,
+    101,
+    102,
+    103,
+    104,
+    105,
+    106,
+    107,
+    108,
+    109
+  ],
+  "validation_seeds": [
+    200,
+    201,
+    202,
+    203,
+    204
+  ],
+  "evaluation_seeds": [
+    300,
+    301,
+    302,
+    303,
+    304,
+    305,
+    306,
+    307,
+    308,
+    309
+  ],
+  "selection": "Maximize validation mean_steps; then minimize mean episode cost; then weight",
+  "episode_steps": 200,
+  "model_seed": 42
+}

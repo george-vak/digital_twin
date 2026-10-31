@@ -1,0 +1,7 @@
+{
+  "run": "tuning_w60_l10000",
+  "weight": 10000,
+  "mean_steps": 104.0,
+  "completed": 0,
+  "mean_cost": 179.52570224538385
+}

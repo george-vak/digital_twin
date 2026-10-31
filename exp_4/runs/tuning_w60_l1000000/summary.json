@@ -1,0 +1,96 @@
+{
+  "training": [
+    {
+      "mode": "train",
+      "seed": 100,
+      "steps": 48,
+      "terminated": true,
+      "mean_cost": 165.0765300665128,
+      "std_cost": 14.228730897092536,
+      "total_cost": 7923.673443192613
+    },
+    {
+      "mode": "train",
+      "seed": 101,
+      "steps": 54,
+      "terminated": true,
+      "mean_cost": 161.33559085186874,
+      "std_cost": 14.46346566361939,
+      "total_cost": 8712.121906000912
+    },
+    {
+      "mode": "train",
+      "seed": 102,
+      "steps": 61,
+      "terminated": true,
+      "mean_cost": 164.94697864377935,
+      "std_cost": 12.879722050164746,
+      "total_cost": 10061.76569727054
+    },
+    {
+      "mode": "train",
+      "seed": 103,
+      "steps": 62,
+      "terminated": true,
+      "mean_cost": 169.95752112370567,
+      "std_cost": 10.779291770596375,
+      "total_cost": 10537.366309669751
+    },
+    {
+      "mode": "train",
+      "seed": 104,
+      "steps": 42,
+      "terminated": true,
+      "mean_cost": 152.54950569054768,
+      "std_cost": 10.261973418342329,
+      "total_cost": 6407.079239003002
+    },
+    {
+      "mode": "train",
+      "seed": 105,
+      "steps": 60,
+      "terminated": true,
+      "mean_cost": 172.65877217235303,
+      "std_cost": 3.6210514183578857,
+      "total_cost": 10359.526330341181
+    },
+    {
+      "mode": "train",
+      "seed": 106,
+      "steps": 61,
+      "terminated": true,
+      "mean_cost": 172.79555431333802,
+      "std_cost": 5.109730853965758,
+      "total_cost": 10540.528813113619
+    },
+    {
+      "mode": "train",
+      "seed": 107,
+      "steps": 42,
+      "terminated": true,
+      "mean_cost": 171.72243914148956,
+      "std_cost": 3.8519775797730214,
+      "total_cost": 7212.342443942562
+    },
+    {
+      "mode": "train",
+      "seed": 108,
+      "steps": 42,
+      "terminated": true,
+      "mean_cost": 179.87727431299203,
+      "std_cost": 6.254235850249822,
+      "total_cost": 7554.845521145665
+    },
+    {
+      "mode": "train",
+      "seed": 109,
+      "steps": 72,
+      "terminated": true,
+      "mean_cost": 181.4314221980061,
+      "std_cost": 12.190473331012457,
+      "total_cost": 13063.062398256438
+    }
+  ],
+  "total_steps": 544,
+  "actor_updates": 345
+}
