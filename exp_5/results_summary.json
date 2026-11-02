@@ -1,0 +1,62 @@
+[
+  {
+    "percentile": 80,
+    "phase": "train",
+    "episodes": 10,
+    "actor_updates": 2000,
+    "release_fraction": 1.0,
+    "mean_cost": 170.87300498984095,
+    "mean_steps": 200.0,
+    "plots": 21
+  },
+  {
+    "percentile": 80,
+    "phase": "validation",
+    "episodes": 5,
+    "actor_updates": 0,
+    "release_fraction": 1.0,
+    "mean_cost": 170.36670755426886,
+    "mean_steps": 200.0,
+    "plots": 11
+  },
+  {
+    "percentile": 80,
+    "phase": "evaluation",
+    "episodes": 10,
+    "actor_updates": 0,
+    "release_fraction": 1.0,
+    "mean_cost": 170.9138539882284,
+    "mean_steps": 200.0,
+    "plots": 21
+  },
+  {
+    "percentile": 90,
+    "phase": "train",
+    "episodes": 10,
+    "actor_updates": 2000,
+    "release_fraction": 1.0,
+    "mean_cost": 170.87300498984095,
+    "mean_steps": 200.0,
+    "plots": 21
+  },
+  {
+    "percentile": 90,
+    "phase": "validation",
+    "episodes": 5,
+    "actor_updates": 0,
+    "release_fraction": 1.0,
+    "mean_cost": 170.36670755426886,
+    "mean_steps": 200.0,
+    "plots": 11
+  },
+  {
+    "percentile": 90,
+    "phase": "evaluation",
+    "episodes": 10,
+    "actor_updates": 0,
+    "release_fraction": 1.0,
+    "mean_cost": 170.9138539882284,
+    "mean_steps": 200.0,
+    "plots": 21
+  }
+]

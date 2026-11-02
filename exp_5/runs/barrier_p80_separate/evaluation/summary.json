@@ -1,0 +1,129 @@
+{
+  "episodes": [
+    {
+      "mode": "evaluation",
+      "seed": 800,
+      "steps": 200,
+      "terminated": false,
+      "mean_cost": 169.032765921887,
+      "std_cost": 4.95759387364663,
+      "total_cost": 33806.5531843774,
+      "released_steps": 200,
+      "actor_steps": 0,
+      "release_fraction": 1.0
+    },
+    {
+      "mode": "evaluation",
+      "seed": 801,
+      "steps": 200,
+      "terminated": false,
+      "mean_cost": 170.96611873980964,
+      "std_cost": 4.7094226669607115,
+      "total_cost": 34193.22374796193,
+      "released_steps": 200,
+      "actor_steps": 0,
+      "release_fraction": 1.0
+    },
+    {
+      "mode": "evaluation",
+      "seed": 802,
+      "steps": 200,
+      "terminated": false,
+      "mean_cost": 170.58068536799968,
+      "std_cost": 5.224102898593712,
+      "total_cost": 34116.13707359994,
+      "released_steps": 200,
+      "actor_steps": 0,
+      "release_fraction": 1.0
+    },
+    {
+      "mode": "evaluation",
+      "seed": 803,
+      "steps": 200,
+      "terminated": false,
+      "mean_cost": 172.93326349144357,
+      "std_cost": 5.681819281518799,
+      "total_cost": 34586.652698288715,
+      "released_steps": 200,
+      "actor_steps": 0,
+      "release_fraction": 1.0
+    },
+    {
+      "mode": "evaluation",
+      "seed": 804,
+      "steps": 200,
+      "terminated": false,
+      "mean_cost": 171.04990328922898,
+      "std_cost": 5.631206540763623,
+      "total_cost": 34209.980657845794,
+      "released_steps": 200,
+      "actor_steps": 0,
+      "release_fraction": 1.0
+    },
+    {
+      "mode": "evaluation",
+      "seed": 805,
+      "steps": 200,
+      "terminated": false,
+      "mean_cost": 171.33777605346296,
+      "std_cost": 4.097734416469415,
+      "total_cost": 34267.55521069259,
+      "released_steps": 200,
+      "actor_steps": 0,
+      "release_fraction": 1.0
+    },
+    {
+      "mode": "evaluation",
+      "seed": 806,
+      "steps": 200,
+      "terminated": false,
+      "mean_cost": 168.18327825819588,
+      "std_cost": 5.709080045874239,
+      "total_cost": 33636.65565163918,
+      "released_steps": 200,
+      "actor_steps": 0,
+      "release_fraction": 1.0
+    },
+    {
+      "mode": "evaluation",
+      "seed": 807,
+      "steps": 200,
+      "terminated": false,
+      "mean_cost": 170.4389298170671,
+      "std_cost": 3.445550700341903,
+      "total_cost": 34087.78596341342,
+      "released_steps": 200,
+      "actor_steps": 0,
+      "release_fraction": 1.0
+    },
+    {
+      "mode": "evaluation",
+      "seed": 808,
+      "steps": 200,
+      "terminated": false,
+      "mean_cost": 171.63851244433445,
+      "std_cost": 4.784462632326389,
+      "total_cost": 34327.70248886689,
+      "released_steps": 200,
+      "actor_steps": 0,
+      "release_fraction": 1.0
+    },
+    {
+      "mode": "evaluation",
+      "seed": 809,
+      "steps": 200,
+      "terminated": false,
+      "mean_cost": 172.9773064988546,
+      "std_cost": 8.466817795022903,
+      "total_cost": 34595.46129977092,
+      "released_steps": 200,
+      "actor_steps": 0,
+      "release_fraction": 1.0
+    }
+  ],
+  "total_steps": 2000,
+  "actor_updates": 0,
+  "mean_steps": 200.0,
+  "mean_cost": 170.9138539882284,
+  "release_fraction": 1.0
+}

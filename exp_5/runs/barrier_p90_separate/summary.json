@@ -1,0 +1,129 @@
+{
+  "episodes": [
+    {
+      "mode": "train",
+      "seed": 600,
+      "steps": 200,
+      "terminated": false,
+      "mean_cost": 169.629043516483,
+      "std_cost": 4.027660729667833,
+      "total_cost": 33925.8087032966,
+      "released_steps": 200,
+      "actor_steps": 0,
+      "release_fraction": 1.0
+    },
+    {
+      "mode": "train",
+      "seed": 601,
+      "steps": 200,
+      "terminated": false,
+      "mean_cost": 169.44043040488725,
+      "std_cost": 4.704417881775127,
+      "total_cost": 33888.08608097745,
+      "released_steps": 200,
+      "actor_steps": 0,
+      "release_fraction": 1.0
+    },
+    {
+      "mode": "train",
+      "seed": 602,
+      "steps": 200,
+      "terminated": false,
+      "mean_cost": 172.3490108915845,
+      "std_cost": 4.162239294692056,
+      "total_cost": 34469.8021783169,
+      "released_steps": 200,
+      "actor_steps": 0,
+      "release_fraction": 1.0
+    },
+    {
+      "mode": "train",
+      "seed": 603,
+      "steps": 200,
+      "terminated": false,
+      "mean_cost": 169.0646421666987,
+      "std_cost": 5.38602081861079,
+      "total_cost": 33812.92843333974,
+      "released_steps": 200,
+      "actor_steps": 0,
+      "release_fraction": 1.0
+    },
+    {
+      "mode": "train",
+      "seed": 604,
+      "steps": 200,
+      "terminated": false,
+      "mean_cost": 170.85193297014456,
+      "std_cost": 4.20071291461454,
+      "total_cost": 34170.38659402891,
+      "released_steps": 200,
+      "actor_steps": 0,
+      "release_fraction": 1.0
+    },
+    {
+      "mode": "train",
+      "seed": 605,
+      "steps": 200,
+      "terminated": false,
+      "mean_cost": 171.66751358689703,
+      "std_cost": 4.805024054599535,
+      "total_cost": 34333.50271737941,
+      "released_steps": 200,
+      "actor_steps": 0,
+      "release_fraction": 1.0
+    },
+    {
+      "mode": "train",
+      "seed": 606,
+      "steps": 200,
+      "terminated": false,
+      "mean_cost": 171.3378933590409,
+      "std_cost": 4.421495284508353,
+      "total_cost": 34267.57867180818,
+      "released_steps": 200,
+      "actor_steps": 0,
+      "release_fraction": 1.0
+    },
+    {
+      "mode": "train",
+      "seed": 607,
+      "steps": 200,
+      "terminated": false,
+      "mean_cost": 170.13223332312896,
+      "std_cost": 4.369446153529464,
+      "total_cost": 34026.44666462579,
+      "released_steps": 200,
+      "actor_steps": 0,
+      "release_fraction": 1.0
+    },
+    {
+      "mode": "train",
+      "seed": 608,
+      "steps": 200,
+      "terminated": false,
+      "mean_cost": 170.6180452012724,
+      "std_cost": 3.5457306546470853,
+      "total_cost": 34123.60904025448,
+      "released_steps": 200,
+      "actor_steps": 0,
+      "release_fraction": 1.0
+    },
+    {
+      "mode": "train",
+      "seed": 609,
+      "steps": 200,
+      "terminated": false,
+      "mean_cost": 173.63930447827204,
+      "std_cost": 3.504075717658319,
+      "total_cost": 34727.860895654405,
+      "released_steps": 200,
+      "actor_steps": 0,
+      "release_fraction": 1.0
+    }
+  ],
+  "total_steps": 2000,
+  "actor_updates": 2000,
+  "mean_steps": 200.0,
+  "mean_cost": 170.87300498984095,
+  "release_fraction": 1.0
+}
