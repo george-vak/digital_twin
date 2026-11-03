@@ -1,0 +1,30 @@
+{
+  "checkpoint": "exp_2/runs/first/models/gru.pt",
+  "seed": 42,
+  "episodes": 10,
+  "episode_steps": 200,
+  "warmup_steps": 1000,
+  "frequency_seconds": 60,
+  "batch_size": 64,
+  "buffer_size": 10000,
+  "actor_lr": 3e-06,
+  "model_lr": 0.0001,
+  "exploration_std": 0.1,
+  "freeze_steps": 3,
+  "freeze_atol": 1e-10,
+  "train_seed_start": 600,
+  "docker_image": "temain-simulator:local",
+  "regularization_window": 60,
+  "regularization_weight": 10000.0,
+  "regularization_scale": 100.0,
+  "parent_controller": "exp_4/runs/tuning_w60_l10000/controller.pt",
+  "barrier_weight": 1.0,
+  "barrier_epsilon": 0.1,
+  "replay_source": "exp_4/runs/tuning_w60_l10000/steps.csv",
+  "excluded_mv": [
+    11
+  ],
+  "bounds_method": "per_episode_full_warmup_raw_p01_p99",
+  "target_cost": 160.0,
+  "actor_objective": "per_transition_squared_cost_error"
+}

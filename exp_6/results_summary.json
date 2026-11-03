@@ -1,0 +1,53 @@
+{
+  "run": "target_160",
+  "target_cost": 160,
+  "phases": [
+    {
+      "phase": "train",
+      "episodes": 10,
+      "actor_updates": 2000,
+      "actor_steps": 19,
+      "total_steps": 2000,
+      "actor_fraction": 0.009499999999999953,
+      "mean_steps": 200.0,
+      "mean_cost": 170.75244418787315,
+      "cost_mae": 10.835021840824204,
+      "cost_rmse": 12.079533791254073,
+      "plots": 21
+    },
+    {
+      "phase": "validation",
+      "episodes": 5,
+      "actor_updates": 0,
+      "actor_steps": 19,
+      "total_steps": 1000,
+      "actor_fraction": 0.019000000000000017,
+      "mean_steps": 200.0,
+      "mean_cost": 169.15914714376893,
+      "cost_mae": 9.301400313201817,
+      "cost_rmse": 10.48179419117896,
+      "plots": 11
+    },
+    {
+      "phase": "evaluation",
+      "episodes": 10,
+      "actor_updates": 0,
+      "actor_steps": 16,
+      "total_steps": 2000,
+      "actor_fraction": 0.008000000000000007,
+      "mean_steps": 200.0,
+      "mean_cost": 171.10520340560927,
+      "cost_mae": 11.221501789311121,
+      "cost_rmse": 12.792998736412763,
+      "plots": 21
+    }
+  ],
+  "previous_experiment_evaluation": {
+    "experiment": "exp_5 P90 (P80 has identical results)",
+    "mean_cost": 170.91385398822837,
+    "cost_mae": 10.983516192366347,
+    "cost_rmse": 12.26943864498424,
+    "mean_steps": 200.0,
+    "actor_fraction": 0.0
+  }
+}
