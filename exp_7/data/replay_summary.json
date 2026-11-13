@@ -1,0 +1,10 @@
+{
+  "transitions": 644,
+  "safe_start_transitions": 21,
+  "replay_sha256": "d8c476105cffc395dfa0295a7ba6eda8dbf90bf6ffca1190b5ab2775a9d29a97",
+  "parent_sha256": "af8ce0cd1291224cf9bafad14b0fd71a132aff72d29a0ade5802b2c45258c6e8",
+  "checkpoint_sha256": "02256a6f500e8fdfd0f083c7ec5317b0f0d6b9cc7b63bb58b6bb5893dfe1ad37",
+  "warmup_steps": 1000,
+  "frequency_seconds": 60,
+  "episode_steps": 200
+}

@@ -1,0 +1,25 @@
+{
+  "run": ".",
+  "checkpoint_sha256": "cb985341c4e4a50546d110219da77b483c866bc7ca47b404f93cefc71186f6ce",
+  "validation": {
+    "mean_safe_target_steps": 0.1,
+    "mean_safe_steps": 1.25,
+    "safe_price_score": 0.4576223199979156,
+    "mean_steps": 1.65,
+    "completed_episodes": 0,
+    "cost_mae": 10.57035370317393,
+    "initial_cv_outside": 12,
+    "episodes": 20
+  },
+  "evaluation": {
+    "mean_safe_target_steps": 0.05,
+    "mean_safe_steps": 0.6,
+    "safe_price_score": 0.23203026608635097,
+    "mean_steps": 0.9,
+    "completed_episodes": 0,
+    "cost_mae": 9.480465245421604,
+    "initial_cv_outside": 14,
+    "episodes": 20
+  },
+  "original_training_checkpoint_sha256": "52abf33b43f18e5e6bd7bc1b0a3a84209db45c6b0e634e18865c95c181605b3b"
+}

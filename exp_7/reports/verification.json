@@ -1,0 +1,38 @@
+{
+  "completed_search_trials": 24,
+  "completed_confirmation_trials": 12,
+  "selected": "tune_trial_08_e30",
+  "final_actor_updates": 55,
+  "test_seeds": [
+    900,
+    901,
+    902,
+    903,
+    904,
+    905,
+    906,
+    907,
+    908,
+    909,
+    910,
+    911,
+    912,
+    913,
+    914,
+    915,
+    916,
+    917,
+    918,
+    919
+  ],
+  "matched_baseline_bounds": true,
+  "checkpoint_sha256": "cb985341c4e4a50546d110219da77b483c866bc7ca47b404f93cefc71186f6ce",
+  "code_sha256": {
+    "exp_7/run.py": "374901b7ad7709fefc3b25f542ddc72ce4bb87b2314f4cf3084f2e6fa15858dd",
+    "exp_7/data.py": "8e9917ed450f45ef501782b5c76cd80ffd807e3c8486f694ee7fe2abeb4c47f1",
+    "exp_7/networks.py": "109d054ab49b46ae9932f9809d3cdfbd6c128c4a5abe54aeafb77b22a86e90e2",
+    "exp_7/safety.py": "5377884cc653ce1d5991c60dbcd4ff53c60305cbb1259997800f2f8c661dfd97",
+    "exp_7/tune.py": "908165eb18d0a4bbb3dbcbea732a2a41546a8e6fba4997d3209f1a811b6beea4"
+  },
+  "original_training_checkpoint_sha256": "52abf33b43f18e5e6bd7bc1b0a3a84209db45c6b0e634e18865c95c181605b3b"
+}

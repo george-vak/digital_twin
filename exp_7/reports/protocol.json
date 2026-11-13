@@ -1,0 +1,180 @@
+{
+  "search": "balanced random joint search",
+  "search_seed": 314159,
+  "candidates": 24,
+  "space": {
+    "actor_lr": [
+      3e-06,
+      3e-05,
+      0.0003
+    ],
+    "model_lr": [
+      1e-05,
+      0.0001,
+      0.0003
+    ],
+    "batch_size": [
+      16,
+      32,
+      64
+    ],
+    "exploration_std": [
+      0.0,
+      0.1,
+      0.3
+    ],
+    "regularization_window": [
+      10,
+      30,
+      60
+    ],
+    "regularization_weight": [
+      0.0,
+      1.0,
+      100.0,
+      10000.0
+    ],
+    "barrier_weight": [
+      0.1,
+      1.0,
+      10.0
+    ],
+    "barrier_epsilon": [
+      0.05,
+      0.1,
+      0.2
+    ],
+    "tracking_weight": [
+      0.3,
+      1.0,
+      3.0
+    ],
+    "cost_scale": [
+      5.0,
+      10.0,
+      20.0
+    ],
+    "survival_temperature": [
+      0.02,
+      0.05,
+      0.1
+    ],
+    "model_pretrain_updates": [
+      0,
+      32,
+      96
+    ],
+    "actor_pretrain_updates": [
+      32,
+      96,
+      192
+    ],
+    "updates_per_step": [
+      1,
+      4
+    ]
+  },
+  "screening": {
+    "train_seeds": [
+      600,
+      601,
+      602,
+      603,
+      604,
+      605,
+      606,
+      607,
+      608,
+      609
+    ],
+    "model_seed": 42,
+    "validation_seeds": [
+      700,
+      701,
+      702,
+      703,
+      704,
+      705,
+      706,
+      707,
+      708,
+      709
+    ]
+  },
+  "confirmation": {
+    "top_candidates": 3,
+    "episode_budgets": [
+      10,
+      30
+    ],
+    "model_seeds": [
+      43,
+      44
+    ],
+    "validation_seeds": [
+      700,
+      701,
+      702,
+      703,
+      704,
+      705,
+      706,
+      707,
+      708,
+      709,
+      710,
+      711,
+      712,
+      713,
+      714,
+      715,
+      716,
+      717,
+      718,
+      719
+    ]
+  },
+  "final": {
+    "model_seed": 45,
+    "evaluation_seeds": [
+      900,
+      901,
+      902,
+      903,
+      904,
+      905,
+      906,
+      907,
+      908,
+      909,
+      910,
+      911,
+      912,
+      913,
+      914,
+      915,
+      916,
+      917,
+      918,
+      919
+    ]
+  },
+  "selection": [
+    "maximize safe target steps per episode at 160 +/- 5",
+    "maximize mean safe steps",
+    "maximize safe price score with fixed scale 10",
+    "minimize observed cost MAE",
+    "candidate name for exact ties"
+  ],
+  "fixed": {
+    "target_cost": 160,
+    "episode_steps": 200,
+    "warmup_steps": 1000,
+    "survival_weight": 1,
+    "tracking_tolerance": 5,
+    "buffer_size": 10000,
+    "regularization_scale": 100,
+    "survival_cutoff": 1e-06
+  },
+  "baseline_reference": "pre-tuning exp_7 model (removed during cleanup)"
+}
