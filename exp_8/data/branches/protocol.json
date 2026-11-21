@@ -1,0 +1,46 @@
+{
+  "settings": {
+    "warmup_steps": 1000,
+    "frequency_seconds": 60,
+    "branch_horizon": 20,
+    "anchors": 22,
+    "anchor_spacing": 12,
+    "residual_limit": 1.5,
+    "calibration_seeds": [
+      2600,
+      2601,
+      2602,
+      2603,
+      2604,
+      2605,
+      2606,
+      2607,
+      2608,
+      2609,
+      2610,
+      2611,
+      2612,
+      2613,
+      2614,
+      2615,
+      2616,
+      2617,
+      2618,
+      2619
+    ],
+    "critic_validation_seeds": [
+      2630,
+      2631,
+      2632,
+      2633,
+      2634,
+      2635
+    ]
+  },
+  "source": {
+    "libtemain.so": "5f79311ee6bf9e6972fe8deada5485706c78dd903889003d54b0832d6ce33049",
+    "temain.py": "0f2892c376ee83729b1dee3d20b40cefb9b8238a4596d2e6a830bcd09f7df4ee",
+    "exp_8/simulator.py": "faf9937bf9712863713653d9e1a37c3bef17dfd037b9276ab8d14bcc88e1e423",
+    "exp_8/collect.py": "ca665508e5e37c481a3cf236086a9eddef7bc767f4e5f4a269c42d40b6fc7779"
+  }
+}

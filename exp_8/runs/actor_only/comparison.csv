@@ -1,0 +1,3 @@
+candidate,episodes_at_least_200,completed_episodes,mean_steps,mean_cost
+imitation,0,0,23.0,189.78408973251993
+imitation_1,6,5,294.0,174.35298912605353

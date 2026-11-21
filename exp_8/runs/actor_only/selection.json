@@ -1,0 +1,19 @@
+{
+  "candidate": "imitation_1",
+  "encoder_sha256": "c23e9cba9045ced8a1b998d8335dc7492105677762333a48ae89663f878f3ebd",
+  "validation": {
+    "mean_steps": 294.0,
+    "max_steps": 300,
+    "completed_episodes": 5,
+    "episodes_at_least_200": 6,
+    "successful_episodes": 0,
+    "median_streak": 12.5,
+    "mean_streak": 19.166666666666668,
+    "max_streak": 53,
+    "mean_streak_rmse": 2.357458199576982,
+    "mean_abs_delta_mv": 0.682253240321343,
+    "cost_mae": 17.294154582351172,
+    "mean_cost": 174.35298912605353,
+    "at_least_200_cost": 174.59138105406566
+  }
+}
